@@ -1,0 +1,63 @@
+<section class="events-section">
+
+  <div class="section-header">
+
+    <h2>Upcoming Events</h2>
+
+    <p>
+      Discover and book exciting events at VenueVista
+    </p>
+
+  </div>
+
+
+  <div class="events-container">
+
+    @for (event of events(); track event.id) {
+
+      <div class="event-card">
+
+        <div class="event-content">
+
+          <h3>
+            {{ event.name }}
+          </h3>
+
+          <p class="event-date">📅 {{ event.date | date:'dd MMMM yyyy' }}</p>
+
+          <p class="event-description">
+            {{ event.description }}
+          </p>
+
+          <div class="venue-info">
+
+            <p>
+              📍 {{ event.venue.name }}
+            </p>
+
+            <p>
+              {{ event.venue.location }}
+            </p>
+
+          </div>
+
+          <button class="book-button" routerLink="/tickets">View Event</button>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    @if (events().length === 0) {
+
+      <p>
+        Loading events...
+      </p>
+
+    }
+
+  </div>
+
+</section>

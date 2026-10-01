@@ -1,0 +1,31 @@
+# =========================
+# Backend - Spring Boot
+# =========================
+Backend/target/
+Backend/.idea/
+Backend/.vscode/
+
+# Local database configuration / secrets
+Backend/src/main/resources/application-local.properties
+Backend/src/main/resources/application-local.yml
+
+# =========================
+# Frontend - Angular
+# =========================
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
+Frontend/.idea/
+Frontend/.vscode/
+
+# =========================
+# OS / IDE
+# =========================
+.DS_Store
+.idea/
+.vscode/
+
+# Environment / secret files
+.env
+.env.*
+!.env.example

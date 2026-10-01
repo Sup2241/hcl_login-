@@ -1,0 +1,161 @@
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>Available Tickets</h2>
+
+    <p>
+      Choose your ticket for upcoming events
+    </p>
+
+  </div>
+
+
+  <div class="cards-container">
+
+    @for (ticket of tickets(); track ticket.id) {
+
+      <div class="card">
+
+        <h3>
+          {{ ticket.ticketType }} Ticket
+        </h3>
+
+        <p>
+          🎫 Event: {{ ticket.event.name }}
+        </p>
+
+        <p class="price">
+          ₹{{ ticket.price }}
+        </p>
+
+        <p>
+          Available: {{ ticket.quantity }}
+        </p>
+
+
+        <button
+          (click)="openBooking(ticket)"
+          [disabled]="ticket.quantity <= 0"
+        >
+
+          {{ ticket.quantity > 0
+              ? 'Book Now'
+              : 'Sold Out'
+          }}
+
+        </button>
+
+      </div>
+
+    }
+
+
+    @if (tickets().length === 0) {
+
+      <p>
+        Loading tickets...
+      </p>
+
+    }
+
+  </div>
+
+
+  @if (selectedTicket) {
+
+    <div class="booking-overlay">
+
+      <div class="booking-form">
+
+        <button
+          class="close-button"
+          (click)="closeBooking()"
+        >
+          ✕
+        </button>
+
+
+        <h2>
+          Book Your Ticket
+        </h2>
+
+
+        <div class="booking-info">
+
+          <h3>
+            {{ selectedTicket.event.name }}
+          </h3>
+
+          <p>
+            Ticket: {{ selectedTicket.ticketType }}
+          </p>
+
+          <p>
+            Price: ₹{{ selectedTicket.price }}
+          </p>
+
+        </div>
+
+
+        <label>
+          Quantity
+        </label>
+
+        <input
+          type="number"
+          min="1"
+          [max]="selectedTicket.quantity"
+          [(ngModel)]="quantity"
+        />
+
+
+        <label>
+          Seat Numbers
+        </label>
+
+        <input
+          type="text"
+          placeholder="Example: A1, A2"
+          [(ngModel)]="seatNumbers"
+        />
+
+
+        <small>
+          Enter one seat number for each ticket.
+        </small>
+
+
+        <div class="total">
+
+          Total Amount:
+          ₹{{ getTotal() }}
+
+        </div>
+
+
+        @if (bookingMessage) {
+
+          <p class="booking-message">
+            {{ bookingMessage }}
+          </p>
+
+        }
+
+
+        <button
+          class="confirm-button"
+          (click)="confirmBooking()"
+        >
+
+          Confirm Booking
+
+        </button>
+
+      </div>
+
+    </div>
+
+  }
+
+</section>

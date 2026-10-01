@@ -1,0 +1,83 @@
+.hero {
+    min-height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f1f5f9;
+    padding: 40px;
+  }
+  
+  .hero-content {
+    max-width: 700px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    color: #1e293b;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    color: #64748b;
+    line-height: 1.6;
+  }
+  
+  .hero-buttons {
+    margin-top: 30px;
+  }
+  
+  .hero-buttons button {
+    padding: 12px 25px;
+    margin: 0 8px;
+    border: none;
+    border-radius: 6px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .hero-buttons .secondary-button {
+    background: white;
+    color: #1e293b;
+    border: 1px solid #1e293b;
+  }
+  
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 50px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  .feature-card {
+    padding: 25px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .feature-card h3 {
+    color: #1e293b;
+  }
+  
+  .feature-card p {
+    color: #64748b;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 700px) {
+  
+    .features {
+      grid-template-columns: 1fr;
+    }
+  
+    .hero h1 {
+      font-size: 36px;
+    }
+  
+  }

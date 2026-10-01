@@ -1,0 +1,72 @@
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>My Bookings</h2>
+
+    <p>
+      View and manage your event bookings
+    </p>
+
+  </div>
+
+
+  <div class="cards-container">
+
+    @for (booking of bookings(); track booking.id) {
+
+      <div class="card">
+
+        <h3>
+          {{ booking.event.name }}
+        </h3>
+
+        <p>
+          🎫 Ticket:
+          {{ booking.ticket.ticketType }}
+        </p>
+
+        <p>
+          🔢 Quantity:
+          {{ booking.quantity }}
+        </p>
+
+        <p>
+          💺 Seats:
+          {{ booking.seatNumbers.join(', ') }}
+        </p>
+
+        <p>
+          💰 Total:
+          ₹{{ booking.totalAmount }}
+        </p>
+
+        <p class="status">
+          Status:
+          {{ booking.status }}
+        </p>
+
+        @if (booking.status === 'CONFIRMED') {
+          <button
+            class="cancel-button"
+            (click)="cancelBooking(booking.id)">
+            Cancel Booking
+          </button>
+        }
+
+      </div>
+
+    }
+
+
+    @if (bookings().length === 0) {
+
+      <p>
+        Loading bookings...
+      </p>
+
+    }
+
+  </div>
+
+</section>

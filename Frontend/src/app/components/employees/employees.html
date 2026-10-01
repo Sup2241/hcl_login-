@@ -1,0 +1,51 @@
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>Our Employees</h2>
+
+    <p>
+      VenueVista event management team
+    </p>
+
+  </div>
+
+
+  <div class="cards-container">
+
+    @for (employee of employees(); track employee.id) {
+
+      <div class="card">
+
+        <h3>
+          {{ employee.name }}
+        </h3>
+
+        <p>
+          📧 {{ employee.email }}
+        </p>
+
+        <p>
+          💼 {{ employee.role }}
+        </p>
+
+        <p>
+          🏢 {{ employee.department }}
+        </p>
+
+      </div>
+
+    }
+
+
+    @if (employees().length === 0) {
+
+      <p>
+        Loading employees...
+      </p>
+
+    }
+
+  </div>
+
+</section>

@@ -1,0 +1,49 @@
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>Available Venues</h2>
+
+    <p>
+      Explore venues available for your events
+    </p>
+
+  </div>
+
+
+  <div class="cards-container">
+
+    @for (venue of venues(); track venue.id) {
+
+      <div class="card">
+
+        <h3>
+          {{ venue.name }}
+        </h3>
+
+        <p>
+          📍 {{ venue.location }}
+        </p>
+
+        <p>
+          👥 Capacity: {{ venue.capacity }}
+        </p>
+
+        <button routerLink="/events">View Events</button>
+
+      </div>
+
+    }
+
+
+    @if (venues().length === 0) {
+
+      <p>
+        Loading venues...
+      </p>
+
+    }
+
+  </div>
+
+</section>
